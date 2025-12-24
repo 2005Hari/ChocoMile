@@ -51,8 +51,6 @@ export default function HeroSection() {
 
                 {/* Bottom Fade to Content */}
                 <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cocoa-950 to-transparent z-10" />
-                {/* Texture Overlay */}
-                <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 mix-blend-overlay" />
             </div>
 
             <div className="relative z-10 w-full px-6 md:px-20 max-w-7xl mx-auto mt-0 md:mt-0 flex flex-col justify-center h-full items-start text-left">
