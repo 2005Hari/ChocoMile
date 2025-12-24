@@ -5,7 +5,7 @@ import Footer from "@/components/Footer";
 import LuxuryMarquee from "@/components/LuxuryMarquee";
 import CategoryFeatures from "@/components/CategoryFeatures";
 import LuxuryCard from "@/components/LuxuryCard";
-import { SIGNATURE_COLLECTIONS, FESTIVE_COLLECTIONS } from "@/lib/products";
+import { SIGNATURE_COLLECTIONS } from "@/lib/products";
 import GoldButton from "@/components/GoldButton";
 import Link from "next/link";
 import Image from "next/image";

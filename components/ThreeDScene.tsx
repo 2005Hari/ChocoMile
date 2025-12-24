@@ -1,6 +1,6 @@
 "use client";
 
-import { Canvas, useFrame, RootState } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { Float, Environment, ContactShadows, RoundedBox } from "@react-three/drei";
 import { useRef } from "react";
 import * as THREE from "three";
