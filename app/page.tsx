@@ -79,7 +79,7 @@ export default function Home() {
               <img src="/artisanal_truffles.png" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Luxury Truffles" />
               <div className="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-transparent to-transparent opacity-90" />
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 items-start">
-                <span className="text-gold-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 md:mb-2">Connoisseur's Choice</span>
+                <span className="text-gold-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 md:mb-2">Connoisseur&apos;s Choice</span>
                 <h3 className="text-cream-100 font-serif text-2xl md:text-3xl mb-2 md:mb-3">Luxury Truffles</h3>
                 <p className="text-cream-200/80 mb-4 md:mb-6 text-xs md:text-sm leading-relaxed">Rich ganache centers dusted in cocoa. A melt-in-your-mouth experience.</p>
                 <div className="flex items-center justify-between w-full mt-auto">
@@ -106,14 +106,14 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[...displayProducts].slice(0, 4).map((product: any) => (
+            {[...displayProducts].slice(0, 4).map((product) => (
               <LuxuryCard
-                key={product._id || product.id}
+                key={product.id}
                 title={product.title}
                 subtitle={product.subtitle}
-                price={typeof product.price === 'number' ? `₹${product.price}` : product.price}
+                price={product.price}
                 image={product.image}
-                href={product.slug ? `/product/${product.slug}` : product.href}
+                href={product.href}
                 className="bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all"
               />
             ))}

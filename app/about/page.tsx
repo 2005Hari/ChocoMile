@@ -97,7 +97,7 @@ export default function AboutPage() {
             <section className="py-32 bg-cream-100 border-y border-cocoa-100 text-center">
                 <div className="container mx-auto px-6 max-w-4xl space-y-12">
                     <h2 className="reveal-text text-4xl md:text-5xl font-serif text-gold-gradient italic">
-                        "We don't just sell chocolate. We curate moments."
+                        &quot;We don&apos;t just sell chocolate. We curate moments.&quot;
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
                         <div className="reveal-text space-y-4">

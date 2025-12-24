@@ -5,9 +5,8 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LuxuryCard from "@/components/LuxuryCard";
 import { SIGNATURE_COLLECTIONS, FESTIVE_COLLECTIONS } from "@/lib/products";
-import { FESTIVALS } from "@/lib/festivals";
 import { cn } from "@/lib/utils";
-import { Sparkles, Leaf, Gift } from "lucide-react";
+import { Sparkles, Gift } from "lucide-react";
 import { motion } from "framer-motion";
 
 export default function CollectionsPage() {

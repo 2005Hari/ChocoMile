@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import MeltingDivider from "@/components/MeltingDivider";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
-import { useState } from "react";
 
 export default function ContactPage() {
     const fadeIn = {
