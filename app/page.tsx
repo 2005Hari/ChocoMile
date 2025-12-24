@@ -1,65 +1,127 @@
-import Image from "next/image";
+import HeroSection from "@/components/HeroSection";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+import LuxuryMarquee from "@/components/LuxuryMarquee";
+import CategoryFeatures from "@/components/CategoryFeatures";
+import LuxuryCard from "@/components/LuxuryCard";
+import { SIGNATURE_COLLECTIONS, FESTIVE_COLLECTIONS } from "@/lib/products";
+import GoldButton from "@/components/GoldButton";
+import Link from "next/link";
 
 export default function Home() {
+  const displayProducts = SIGNATURE_COLLECTIONS.slice(0, 4);
+  const displayFestive = FESTIVE_COLLECTIONS;
+
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="bg-cream-100 min-h-screen">
+      <Navbar />
+
+      {/* 3D Hero */}
+      <div className="relative z-0">
+        <HeroSection />
+      </div>
+
+      {/* Transition: Luxury Marquee */}
+      <div className="relative z-10 bg-cocoa-950">
+        <LuxuryMarquee />
+      </div>
+
+      <div className="relative z-20 bg-cream-100 pb-20">
+
+        {/* Categories */}
+        <CategoryFeatures />
+
+        {/* Curated Gift Collections */}
+        <section className="container mx-auto px-4 md:px-6 py-10 md:py-16">
+          <div className="text-center mb-8 md:mb-12">
+            <h2 className="text-3xl md:text-5xl font-serif text-cocoa-900 mb-2 md:mb-3">Curated Gift Collections</h2>
+            <p className="text-cocoa-700 italic max-w-2xl mx-auto text-sm md:text-base">Discover the perfect gift for every occassion, wrapped in luxury.</p>
+            <div className="w-12 md:w-16 h-[2px] bg-gold-400 mx-auto mt-4 md:mt-6" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 auto-rows-[450px] md:auto-rows-[550px]">
+            {/* Card 1: Signature Hampers */}
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden group shadow-xl">
+              <img src="/signature_hamper.png" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Signature Hampers" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 items-start">
+                <span className="text-gold-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 md:mb-2">Best Seller</span>
+                <h3 className="text-cream-100 font-serif text-2xl md:text-3xl mb-2 md:mb-3">Signature Hampers</h3>
+                <p className="text-cream-200/80 mb-4 md:mb-6 text-xs md:text-sm leading-relaxed">Assorted pralines and truffles in our iconic gold box. The ultimate gesture of luxury.</p>
+                <div className="flex items-center justify-between w-full mt-auto">
+                  <GoldButton className="w-fit text-sm px-4 py-2">Shop Now</GoldButton>
+                  <span className="text-white text-xs md:text-base font-medium bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">From ₹1499</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2: Festive Edit */}
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden group shadow-xl">
+              <img src="/festive_bark.png" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Festive Edit" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 items-start">
+                <span className="text-gold-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 md:mb-2">Limited Edition</span>
+                <h3 className="text-cream-100 font-serif text-2xl md:text-3xl mb-2 md:mb-3">Festive Edit</h3>
+                <p className="text-cream-200/80 mb-4 md:mb-6 text-xs md:text-sm leading-relaxed">Exclusive seasonal flavors inspired by tradition, wrapped in celebration.</p>
+                <div className="flex items-center justify-between w-full mt-auto">
+                  <Link href="/collections">
+                    <GoldButton className="w-fit text-sm px-4 py-2">View Collection</GoldButton>
+                  </Link>
+                  <span className="text-white text-xs md:text-base font-medium bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">From ₹999</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3: Luxury Truffles */}
+            <div className="relative rounded-xl md:rounded-2xl overflow-hidden group shadow-xl">
+              <img src="/artisanal_truffles.png" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Luxury Truffles" />
+              <div className="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-transparent to-transparent opacity-90" />
+              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 items-start">
+                <span className="text-gold-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 md:mb-2">Connoisseur's Choice</span>
+                <h3 className="text-cream-100 font-serif text-2xl md:text-3xl mb-2 md:mb-3">Luxury Truffles</h3>
+                <p className="text-cream-200/80 mb-4 md:mb-6 text-xs md:text-sm leading-relaxed">Rich ganache centers dusted in cocoa. A melt-in-your-mouth experience.</p>
+                <div className="flex items-center justify-between w-full mt-auto">
+                  <Link href="/collections">
+                    <GoldButton className="w-fit text-sm px-4 py-2">Shop Truffles</GoldButton>
+                  </Link>
+                  <span className="text-white text-xs md:text-base font-medium bg-black/30 px-3 py-1 rounded-full backdrop-blur-sm">From ₹1299</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Top Products */}
+        <section className="container mx-auto px-6 py-20">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-serif text-cocoa-900">Top Product</h2>
+            <div className="w-16 h-[2px] bg-gold-400 mx-auto mt-4 mb-8" />
+            <div className="flex justify-center gap-4">
+              <span className="px-6 py-2 bg-cocoa-100 rounded-full text-xs font-bold uppercase text-cocoa-600 cursor-pointer hover:bg-gold-400 hover:text-white transition-colors">Latest</span>
+              <span className="px-6 py-2 bg-gold-400 text-white rounded-full text-xs font-bold uppercase shadow-lg shadow-gold-400/40">Featured</span>
+              <span className="px-6 py-2 bg-cocoa-100 rounded-full text-xs font-bold uppercase text-cocoa-600 cursor-pointer hover:bg-gold-400 hover:text-white transition-colors">Bestseller</span>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[...displayProducts].slice(0, 4).map((product: any) => (
+              <LuxuryCard
+                key={product._id || product.id}
+                title={product.title}
+                subtitle={product.subtitle}
+                price={typeof product.price === 'number' ? `₹${product.price}` : product.price}
+                image={product.image}
+                href={product.slug ? `/product/${product.slug}` : product.href}
+                className="bg-white rounded-2xl p-4 shadow-lg hover:shadow-2xl transition-all"
+              />
+            ))}
+          </div>
+        </section>
+      </div>
+
+      <Footer />
+    </main>
   );
 }

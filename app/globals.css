@@ -1,26 +1,215 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@theme {
+  /* BACKGROUNDS */
+  --color-background: #FDF8F2;
+  /* Warm Cream/Oatmeal */
+  --color-foreground: #2A1B18;
+  /* Deep Coffee */
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  /* PALETTE */
+  --color-cocoa-50: #FFFFFF;
+  --color-cocoa-100: #F5EBE0;
+  /* Light Latte */
+  --color-cocoa-200: #E6D5C3;
+  /* Milky Coffee */
+  --color-cocoa-300: #D4BFA6;
+  --color-cocoa-800: #5D4037;
+  /* Milk Chocolate */
+  --color-cocoa-900: #3E2723;
+  /* Dark Chocolate Footer */
+  --color-cocoa-950: #2A1B18;
+  /* Espresso Text */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --color-gold-100: #FFF8E1;
+  --color-gold-200: #FFE0B2;
+  --color-gold-300: #FFCC80;
+  --color-gold-400: #BF8D5A;
+  /* Caramel/Bronze */
+  --color-gold-500: #A16D3E;
+  /* Darker Caramel */
+
+  --color-cream-100: #F9F0E6;
+  /* Section Background */
+  --color-cream-200: #EFE5D9;
+
+  /* TYPOGRAPHY */
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+
+  /* BORDER RADIUS overrides for soft feel */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* ANIMATIONS */
+  --animate-fade-in-slow: fadeIn 1.5s ease-out forwards;
+  --animate-fade-in-up: fadeInUp 1s ease-out forwards;
+  --animate-shimmer: shimmer 3s infinite linear;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Custom Utilities */
+@layer utilities {
+  .text-gold-gradient {
+    background: linear-gradient(to right, #BF8D5A, #D4BFA6, #BF8D5A);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% auto;
+    animation: shimmer 5s linear infinite;
+  }
+
+  .bg-glass {
+    background: rgba(253, 248, 242, 0.85);
+    /* Warmer glass */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(191, 141, 90, 0.1);
+  }
+}
+
+/* Base Styles */
+@layer base {
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    antialiased: true;
+    overflow-x: hidden;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-serif);
+    font-weight: 600;
+    /* Slightly lighter for elegance */
+    letter-spacing: -0.02em;
+    /* Tighter headings */
+    line-height: 1.1;
+  }
+
+  p {
+    line-height: 1.6;
+    /* More breathing room */
+    letter-spacing: 0.01em;
+  }
+}
+
+@theme {
+  /* ... (Previous variables remain, ensuring no deletion) ... */
+  /* Re-declaring for context, but in reality I will just target the specific blocks if possible, 
+     but replace_file_content is better for blocks. Let me just update the Animation section and Base layer. */
+
+  /* ANIMATIONS - Refined */
+  --animate-fade-in-slow: fadeIn 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in-up: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-scale-in: scaleIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-shimmer: shimmer 3s infinite linear;
+  --animate-float: float 6s ease-in-out infinite;
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: 200% 0;
+    }
+
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  @keyframes float {
+
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+
+    50% {
+      transform: translateY(-10px);
+    }
+  }
 }
