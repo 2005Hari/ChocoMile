@@ -1,10 +1,10 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { ButtonHTMLAttributes, forwardRef } from "react";
-import { motion } from "framer-motion";
+import { forwardRef } from "react";
+import { motion, HTMLMotionProps } from "framer-motion";
 
-interface GoldButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+interface GoldButtonProps extends HTMLMotionProps<"button"> {
     variant?: "primary" | "outline";
 }
 
@@ -25,7 +25,7 @@ const GoldButton = forwardRef<HTMLButtonElement, GoldButtonProps>(
                 {...props}
             >
                 <span className="relative z-10 flex items-center justify-center gap-2">
-                    {children}
+                    {children as React.ReactNode}
                 </span>
             </motion.button>
         );
