@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, Heart, Share2 } from "lucide-react";
+import { X, Heart, Share2 } from "lucide-react";
 
 // Expanded data with multiple "stories" per category
 const categories = [

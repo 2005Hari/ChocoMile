@@ -8,10 +8,11 @@ import LuxuryCard from "@/components/LuxuryCard";
 import { SIGNATURE_COLLECTIONS, FESTIVE_COLLECTIONS } from "@/lib/products";
 import GoldButton from "@/components/GoldButton";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   const displayProducts = SIGNATURE_COLLECTIONS.slice(0, 4);
-  const displayFestive = FESTIVE_COLLECTIONS;
+
 
 
   return (
@@ -44,7 +45,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8 auto-rows-[450px] md:auto-rows-[550px]">
             {/* Card 1: Signature Hampers */}
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden group shadow-xl">
-              <img src="/signature_hamper.png" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Signature Hampers" />
+              <Image src="/signature_hamper.png" fill className="object-cover group-hover:scale-110 transition-transform duration-1000" alt="Signature Hampers" />
               <div className="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-transparent to-transparent opacity-90" />
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 items-start">
                 <span className="text-gold-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 md:mb-2">Best Seller</span>
@@ -59,7 +60,7 @@ export default function Home() {
 
             {/* Card 2: Festive Edit */}
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden group shadow-xl">
-              <img src="/festive_bark.png" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Festive Edit" />
+              <Image src="/festive_bark.png" fill className="object-cover group-hover:scale-110 transition-transform duration-1000" alt="Festive Edit" />
               <div className="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-transparent to-transparent opacity-90" />
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 items-start">
                 <span className="text-gold-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 md:mb-2">Limited Edition</span>
@@ -76,7 +77,7 @@ export default function Home() {
 
             {/* Card 3: Luxury Truffles */}
             <div className="relative rounded-xl md:rounded-2xl overflow-hidden group shadow-xl">
-              <img src="/artisanal_truffles.png" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000" alt="Luxury Truffles" />
+              <Image src="/artisanal_truffles.png" fill className="object-cover group-hover:scale-110 transition-transform duration-1000" alt="Luxury Truffles" />
               <div className="absolute inset-0 bg-gradient-to-t from-cocoa-950 via-transparent to-transparent opacity-90" />
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8 items-start">
                 <span className="text-gold-400 text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 md:mb-2">Connoisseur&apos;s Choice</span>

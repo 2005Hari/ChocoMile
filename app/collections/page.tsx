@@ -7,6 +7,7 @@ import LuxuryCard from "@/components/LuxuryCard";
 import { SIGNATURE_COLLECTIONS, FESTIVE_COLLECTIONS } from "@/lib/products";
 import { cn } from "@/lib/utils";
 import { Sparkles, Gift } from "lucide-react";
+import Image from "next/image";
 import { motion } from "framer-motion";
 
 export default function CollectionsPage() {
@@ -27,10 +28,11 @@ export default function CollectionsPage() {
             {/* Immersive Header */}
             <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
                 <div className="absolute inset-0">
-                    <img
+                    <Image
                         src="/signature_hamper.png"
                         alt="Handcrafted Chocolates"
-                        className="w-full h-full object-cover opacity-60"
+                        fill
+                        className="object-cover opacity-60"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-cocoa-950/80 via-cocoa-950/60 to-cream-100" />
                 </div>

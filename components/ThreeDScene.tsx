@@ -1,21 +1,21 @@
 "use client";
 
-import { Canvas, useFrame } from "@react-three/fiber";
+import { Canvas, useFrame, RootState } from "@react-three/fiber";
 import { Float, Environment, ContactShadows, RoundedBox } from "@react-three/drei";
-import { useRef, useMemo } from "react";
+import { useRef } from "react";
 import * as THREE from "three";
 
 interface CubeProps {
-  position: any;
-  rotation?: any;
-  scale?: any;
+  position: [number, number, number];
+  rotation?: [number, number, number];
+  scale?: number | [number, number, number];
   color?: string;
 }
 
 function ChocolateCube({ position, rotation, scale, color = "#5D4037" }: CubeProps) {
   const meshRef = useRef<THREE.Mesh>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (!meshRef.current) return;
     meshRef.current.rotation.x += 0.005;
     meshRef.current.rotation.y += 0.005;
@@ -36,13 +36,13 @@ function ChocolateCube({ position, rotation, scale, color = "#5D4037" }: CubePro
 }
 
 interface NuggetProps {
-  position: any;
-  scale?: any;
+  position: [number, number, number];
+  scale?: number | [number, number, number];
 }
 
 function GoldNugget({ position, scale }: NuggetProps) {
   const meshRef = useRef<THREE.Mesh>(null);
-  useFrame((state) => {
+  useFrame(() => {
     if (!meshRef.current) return;
     meshRef.current.rotation.y -= 0.01;
   });
